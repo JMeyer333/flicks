@@ -12,13 +12,14 @@ import MBProgressHUD
 import UIKit
 import AFNetworking
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarDelegate{
     
 
     @IBOutlet weak var NetworkErrorView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var searchBar: UILabel!
+    
     
     var movies: [NSDictionary]?
     var hud: MBProgressHUD?
@@ -36,7 +37,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
 
         tableView.dataSource = self
-        tableView.delegate = self
+        searchBar.delegate = self
         
         //show HUD
         hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
@@ -167,7 +168,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
                 return false
-            }) 
+            })
         }
         tableView.reloadData()
     }

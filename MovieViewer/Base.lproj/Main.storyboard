@@ -80,7 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="NetworkErrorView" destination="0vP-zK-Jmt" id="1gL-Wt-pXH"/>
-                        <outlet property="searchBar" destination="4Du-Mj-x8k" id="NGM-oo-ajz"/>
+                        <outlet property="searchBar" destination="oRs-X1-ISb" id="SPj-LB-9Zc"/>
                         <outlet property="tableView" destination="YoA-1E-Hus" id="HEG-ag-DF3"/>
                     </connections>
                 </viewController>
