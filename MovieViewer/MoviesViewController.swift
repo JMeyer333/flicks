@@ -45,6 +45,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
         networkCall()
     }
     
+    @IBAction func tappedOnView(sender: AnyObject) {searchBar.endEditing(true)
+    }
     func networkCall(){
     
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"

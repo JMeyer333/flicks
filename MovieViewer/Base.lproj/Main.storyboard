@@ -77,6 +77,10 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="t3l-bp-eIf" appends="YES" id="8Hw-bV-7vX"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="NetworkErrorView" destination="0vP-zK-Jmt" id="1gL-Wt-pXH"/>
@@ -85,6 +89,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="t3l-bp-eIf">
+                    <connections>
+                        <action selector="tappedOnView:" destination="BYZ-38-t0r" id="IRv-GB-pg6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="130" y="276"/>
         </scene>
