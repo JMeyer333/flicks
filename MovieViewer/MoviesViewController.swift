@@ -167,7 +167,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
                 return false
-            })
+            }) 
         }
         tableView.reloadData()
     }
