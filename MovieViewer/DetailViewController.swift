@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class DetailViewController: UICollectionViewController {
+class DetailViewController: UIViewController {
     
     @IBOutlet weak var posterImageView: UIImageView!
     
@@ -30,8 +30,9 @@ class DetailViewController: UICollectionViewController {
         
         if let posterPath = movie["poster_path"] as? String {
             let baseUrl = "http://image.tmdb.org/t/p/w500"
-            
-            _ = NSURL(string: baseUrl + posterPath)
+
+            let imageUrl = NSURL(string: baseUrl + posterPath)
+            posterImageView.setImageWithURL(imageUrl!)
             
         }
             
@@ -41,7 +42,7 @@ class DetailViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -63,7 +64,7 @@ class DetailViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    /*override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
@@ -80,7 +81,7 @@ class DetailViewController: UICollectionViewController {
         // Configure the cell
     
         return cell
-    }
+    }*/
 
     // MARK: UICollectionViewDelegate
 

@@ -146,9 +146,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "ShowCounterSegue" {
+        /*if segue.identifier == "ShowCounterSegue" {
             
-        }
+        }*/
         
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
@@ -172,6 +172,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
     func refreshAction(){
         
     }
+    
+    func tableView(tableView: UITableView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        view.endEditing(true)
+        
+    }
+    
+    
     
     
     
