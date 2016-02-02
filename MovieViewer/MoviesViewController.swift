@@ -121,7 +121,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
         let movie = filteredMovies![indexPath.row]
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        let posterPath = movie["poster_path"] as! String
+        if let posterPath = movie["poster_path"] as? String {
         let baseUrl = "http://image.tmdb.org/t/p/w500"
         
         let imageUrl = NSURL(string: baseUrl + posterPath)
@@ -133,20 +133,36 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
         
         
         print("row \(indexPath.row)")
+            
+        }
         return cell
     }
     
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowCounterSegue" {
+            
+        }
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let movie = movies![indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! DetailViewController
+        detailViewController.movie = movie 
+        
+        print("prepare for segue called")
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
     func refreshAction(refreshControl: UIRefreshControl){
     networkCall()
@@ -156,6 +172,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
     func refreshAction(){
         
     }
+    
+    
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText:String){
         if searchText.isEmpty {
