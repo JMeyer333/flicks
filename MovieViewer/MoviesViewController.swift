@@ -24,6 +24,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
     var movies: [NSDictionary]?
     var hud: MBProgressHUD?
     var filteredMovies: [NSDictionary]?
+    var endpoint: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
     func networkCall(){
     
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -130,6 +131,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource,UISearchBarD
         cell.titleLabel.text = title
         cell.overviewLabel.text = overview
         cell.posterView.setImageWithURL(imageUrl!)
+            cell.selectionStyle = .Blue
         
         
         print("row \(indexPath.row)")
